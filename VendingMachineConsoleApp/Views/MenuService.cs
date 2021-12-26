@@ -5,7 +5,7 @@ using System.IO;
 
 namespace VendingMachineConsoleApp.Views
 {
-    public class Menu : IMenu
+    public class MenuService : IMenuService
     {
         public string GetChoiceFromOptions(string[] options)
         {
@@ -32,7 +32,7 @@ namespace VendingMachineConsoleApp.Views
                     choice = options[optionNumber - 1];
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Invalid entry. Please try again.");
             }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VendingMachineConsoleApp.Views
 {
-    public interface IMenu
+    public interface IMenuService
     {
         public string GetChoiceFromOptions(string[] options);
     }

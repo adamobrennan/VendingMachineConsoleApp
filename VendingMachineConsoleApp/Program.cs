@@ -1,15 +1,24 @@
 ﻿using System;
+using VendingMachineConsoleApp.Interfaces;
 using VendingMachineConsoleApp.Views;
 
 namespace VendingMachineConsoleApp
 {
-    static class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            IMenu menu = new Menu();
-            VendingMachineCli cli = new VendingMachineCli(menu);
+            VendingMachineCli cli = InitializeCli();
             cli.Run();
+        }
+
+        private static VendingMachineCli InitializeCli()
+        {
+            IMenuService menu = new MenuService();
+            IFileInputHandler input = new FileInputHandler();
+            VendingMenuOptions options = new VendingMenuOptions();
+            VendingMachineCli cli = new VendingMachineCli(menu, input, options);
+            return cli;
         }
     }
 }
