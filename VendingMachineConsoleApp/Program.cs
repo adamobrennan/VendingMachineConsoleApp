@@ -6,16 +6,26 @@ namespace VendingMachineConsoleApp
 {
     public static class Program
     {
-        public static void Main()
+        public static void Main(string[] args)
         {
-            VendingMachineCli cli = InitializeCli();
+            VendingMachineCli cli;
+
+            if (args != null)
+            {
+                cli = InitializeCli(args[0]);
+            }
+            else
+            {
+                cli = InitializeCli("vendingmachinecli.csv");
+            }
+
             cli.Run();
         }
 
-        private static VendingMachineCli InitializeCli()
+        private static VendingMachineCli InitializeCli(string filePath)
         {
             IMenuService menu = new MenuService();
-            IFileInputHandler input = new FileInputHandler();
+            IFileInputHandler input = new FileInputHandler(filePath);
             VendingMenuOptions options = new VendingMenuOptions();
             VendingMachineCli cli = new VendingMachineCli(menu, input, options);
             return cli;

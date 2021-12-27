@@ -9,15 +9,15 @@ namespace VendingMachineConsoleApp
     public class VendingMachineCli
     {
         private readonly IMenuService menu;
-        private readonly IFileInputHandler fileInput;
         private readonly VendingMenuOptions options;
+        private readonly IFileInputHandler fileInput;
 
 
-        public VendingMachineCli(IMenuService menu, IFileInputHandler fileInput, VendingMenuOptions options)
+        public VendingMachineCli(IMenuService menu, VendingMenuOptions options, IFileInputHandler fileInput)
         {
             this.menu = menu;
-            this.fileInput = fileInput;
             this.options = options;
+            this.fileInput = fileInput;
         }
 
         public void Run()
