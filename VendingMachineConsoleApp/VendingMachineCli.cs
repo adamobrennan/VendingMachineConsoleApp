@@ -22,6 +22,10 @@ namespace VendingMachineConsoleApp
 
         public void Run()
         {
+            if (fileInput.ItemData.ContainsValue(null))
+            {
+                
+            }
             while (true)
             {
                 string choice = menu.GetChoiceFromOptions(options.MAIN_MENU_OPTIONS);

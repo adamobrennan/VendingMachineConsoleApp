@@ -19,6 +19,11 @@ namespace VendingMachineConsoleApp.Views
             return choice;
         }
 
+        public void PrintMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
+
         private string GetChoiceFromUserInput(string[] options)
         {
             string choice = null;
