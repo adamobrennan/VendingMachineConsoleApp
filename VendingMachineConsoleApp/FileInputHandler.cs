@@ -32,15 +32,24 @@ namespace VendingMachineConsoleApp
         private static Dictionary<string, Item> GetErrorResponse(string filePath)
         {
             Dictionary<string, Item> errorDictionary = new Dictionary<string, Item>();
-            errorDictionary.Add($"Error: File not found -- {filePath} \nPlease turn off vending machine and confirm required files are available in file system.", null);
+            errorDictionary.Add(GetFileNotFoundMessage(filePath), null);
             return errorDictionary;
+        }
+
+        private static string GetFileNotFoundMessage(string filePath)
+        {
+            return $"Error: File not found -- {filePath}";
         }
 
         private static Dictionary<string, Item> ReadDataFromFile(string filePath)
         {
-            Dictionary<string, Item> itemsFromFile = new Dictionary<string, Item>();
+            if (File.Exists(filePath) == false)
+            {
+                return GetErrorResponse(filePath);
+            }
 
             using StreamReader sr = File.OpenText(filePath);
+            Dictionary<string, Item> itemsFromFile = new Dictionary<string, Item>();
             string itemString;
 
             while ((itemString = sr.ReadLine()) != null)
