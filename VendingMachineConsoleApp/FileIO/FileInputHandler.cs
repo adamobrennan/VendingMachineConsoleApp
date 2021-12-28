@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using VendingMachineConsoleApp.Interfaces;
 using VendingMachineConsoleApp.Models;
 
-namespace VendingMachineConsoleApp
+namespace VendingMachineConsoleApp.FileIO
 {
     public class FileInputHandler : IFileInputHandler
     {

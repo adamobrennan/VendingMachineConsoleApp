@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using VendingMachineConsoleApp.Models;
 
-namespace VendingMachineConsoleApp.Interfaces
+namespace VendingMachineConsoleApp.FileIO
 {
     public interface IFileInputHandler
     {

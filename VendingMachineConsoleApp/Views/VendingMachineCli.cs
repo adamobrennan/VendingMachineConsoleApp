@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using VendingMachineConsoleApp.Interfaces;
+using VendingMachineConsoleApp.FileIO;
 using VendingMachineConsoleApp.Models;
-using VendingMachineConsoleApp.Views;
 
-namespace VendingMachineConsoleApp
+namespace VendingMachineConsoleApp.Views
 {
     public class VendingMachineCli
     {
@@ -32,11 +30,12 @@ namespace VendingMachineConsoleApp
             }
 
             RunVendingMenu(itemData);
+            Environment.Exit(0);
         }
 
         private void RunVendingMenu(Dictionary<string, Item> itemData)
         {
-            throw new NotImplementedException();
+            menu.GetChoiceFromOptions(options.MAIN_MENU_OPTIONS);
         }
 
         private void ExitDueToErrors(Dictionary<string, Item> itemData)
