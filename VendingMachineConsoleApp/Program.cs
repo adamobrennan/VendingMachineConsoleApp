@@ -27,7 +27,7 @@ namespace VendingMachineConsoleApp
             IMenuService menu = new MenuService();
             IFileInputHandler input = new FileInputHandler(filePath);
             VendingMenuOptions options = new VendingMenuOptions();
-            VendingMachineCli cli = new VendingMachineCli(menu, input, options);
+            VendingMachineCli cli = new VendingMachineCli(menu, options, input);
             return cli;
         }
     }

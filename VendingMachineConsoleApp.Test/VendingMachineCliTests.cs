@@ -17,8 +17,6 @@ namespace VendingMachineConsoleApp.Test
         public void SetUp()
         {
             testMenu = new Mock<IMenuService>();
-
-            cli = new VendingMachineCli(testMenu.Object);
         }
 
     }
