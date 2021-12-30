@@ -7,23 +7,22 @@ namespace VendingMachineConsoleApp.Views
 {
     public class VendingMachineCli
     {
+        private const string errorExitMessage = "Exiting due to errors.";
         private readonly IMenuService menu;
         private readonly VendingMenuOptions options;
-        private readonly IFileInputHandler fileInput;
+        private readonly Dictionary<string, Item> itemData;
         private readonly Item errorValue = null;
 
 
-        public VendingMachineCli(IMenuService menu, VendingMenuOptions options, IFileInputHandler fileInput)
+        public VendingMachineCli(IMenuService menu, VendingMenuOptions options, Dictionary<string, Item> itemData)
         {
             this.menu = menu;
             this.options = options;
-            this.fileInput = fileInput;
+            this.itemData = itemData;
         }
 
         public void Run()
         {
-            Dictionary<string, Item> itemData = fileInput.ItemData;
-
             if (itemData.ContainsValue(errorValue))
             {
                 ExitDueToErrors(itemData);
@@ -46,8 +45,7 @@ namespace VendingMachineConsoleApp.Views
             {
                 menu.PrintMessage(error);
             }
-            Console.WriteLine("Exiting due to errors.");
-            Console.ReadLine();
+            menu.PrintMessage(errorExitMessage);
             Environment.Exit(1);
         }
     }
